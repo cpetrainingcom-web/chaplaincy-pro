@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 70" preserveAspectRatio="none">
+  <!-- Tighter, wavier guilloché — like on currency. -->
+  <g fill="none" stroke="#8A5A1F" stroke-width="0.4" stroke-linecap="round">
+    <!-- Family A: smooth horizontal sine waves, tight spacing (~5px), amplitude 3px -->
+    <g opacity="0.85">
+      <path d="M0 3 Q 17.5 0 35 3 T 70 3 T 105 3 T 140 3"/>
+      <path d="M0 8 Q 17.5 5 35 8 T 70 8 T 105 8 T 140 8"/>
+      <path d="M0 13 Q 17.5 10 35 13 T 70 13 T 105 13 T 140 13"/>
+      <path d="M0 18 Q 17.5 15 35 18 T 70 18 T 105 18 T 140 18"/>
+      <path d="M0 23 Q 17.5 20 35 23 T 70 23 T 105 23 T 140 23"/>
+      <path d="M0 28 Q 17.5 25 35 28 T 70 28 T 105 28 T 140 28"/>
+      <path d="M0 33 Q 17.5 30 35 33 T 70 33 T 105 33 T 140 33"/>
+      <path d="M0 38 Q 17.5 35 35 38 T 70 38 T 105 38 T 140 38"/>
+      <path d="M0 43 Q 17.5 40 35 43 T 70 43 T 105 43 T 140 43"/>
+      <path d="M0 48 Q 17.5 45 35 48 T 70 48 T 105 48 T 140 48"/>
+      <path d="M0 53 Q 17.5 50 35 53 T 70 53 T 105 53 T 140 53"/>
+      <path d="M0 58 Q 17.5 55 35 58 T 70 58 T 105 58 T 140 58"/>
+      <path d="M0 63 Q 17.5 60 35 63 T 70 63 T 105 63 T 140 63"/>
+      <path d="M0 68 Q 17.5 65 35 68 T 70 68 T 105 68 T 140 68"/>
+    </g>
+    <!-- Family B: counter-phase, offset between A's lines (creates braided look) -->
+    <g opacity="0.55">
+      <path d="M0 5.5 Q 17.5 8.5 35 5.5 T 70 5.5 T 105 5.5 T 140 5.5"/>
+      <path d="M0 10.5 Q 17.5 13.5 35 10.5 T 70 10.5 T 105 10.5 T 140 10.5"/>
+      <path d="M0 15.5 Q 17.5 18.5 35 15.5 T 70 15.5 T 105 15.5 T 140 15.5"/>
+      <path d="M0 20.5 Q 17.5 23.5 35 20.5 T 70 20.5 T 105 20.5 T 140 20.5"/>
+      <path d="M0 25.5 Q 17.5 28.5 35 25.5 T 70 25.5 T 105 25.5 T 140 25.5"/>
+      <path d="M0 30.5 Q 17.5 33.5 35 30.5 T 70 30.5 T 105 30.5 T 140 30.5"/>
+      <path d="M0 35.5 Q 17.5 38.5 35 35.5 T 70 35.5 T 105 35.5 T 140 35.5"/>
+      <path d="M0 40.5 Q 17.5 43.5 35 40.5 T 70 40.5 T 105 40.5 T 140 40.5"/>
+      <path d="M0 45.5 Q 17.5 48.5 35 45.5 T 70 45.5 T 105 45.5 T 140 45.5"/>
+      <path d="M0 50.5 Q 17.5 53.5 35 50.5 T 70 50.5 T 105 50.5 T 140 50.5"/>
+      <path d="M0 55.5 Q 17.5 58.5 35 55.5 T 70 55.5 T 105 55.5 T 140 55.5"/>
+      <path d="M0 60.5 Q 17.5 63.5 35 60.5 T 70 60.5 T 105 60.5 T 140 60.5"/>
+      <path d="M0 65.5 Q 17.5 68.5 35 65.5 T 70 65.5 T 105 65.5 T 140 65.5"/>
+    </g>
+  </g>
+</svg>

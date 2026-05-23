@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chaplaincy Pro — Reconstruction in progress</title>
+<meta name="description" content="Chaplaincy Pro is being rebuilt. We'll be back soon. Thank you for your patience." />
+<meta name="theme-color" content="#F4F0E8" />
+
+<link rel="icon" type="image/svg+xml" href="assets/Logo MIni.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..700,30..100;1,9..144,200..700,30..100&family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --lh-bg: #F4F0E8;
+    --lh-surface: #FFFFFF;
+    --lh-surface-warm: #FBF7EE;
+    --lh-ink: #1A1812;
+    --lh-ink-dim: #5C564A;
+    --lh-ink-mute: #8A8270;
+    --lh-rule: #D8CFB8;
+    --lh-rule-soft: #E6DFCC;
+    --lh-brass: #8A5A1F;
+    --lh-brass-hover: #6B4516;
+    --lh-brass-soft: #C9A14A;
+    --lh-ink-well: #0E0C0A;
+    --lh-serif: "Fraunces", "Source Serif Pro", Georgia, serif;
+    --lh-sans: "Inter Tight", "Inter", system-ui, sans-serif;
+    --lh-mono: "JetBrains Mono", ui-monospace, monospace;
+    --lh-ease: cubic-bezier(.2,.7,.2,1);
+    --pad: clamp(20px, 5vw, 56px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--lh-bg);
+    color: var(--lh-ink);
+    font-family: var(--lh-serif);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--lh-brass); }
+
+  /* ============ NAV (logo only) ============ */
+  .nav {
+    position: relative; z-index: 5;
+    display: flex; align-items: center;
+    padding: 20px var(--pad);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo .full { display: block; height: 44px; width: auto; }
+  .nav-logo .mini { display: none; height: 40px; width: auto; }
+  @media (max-width: 640px) {
+    .nav-logo .full { display: none; }
+    .nav-logo .mini { display: block; }
+  }
+
+  /* ============ HERO with video + golden gradient + guilloche ============ */
+  .hero {
+    position: relative;
+    flex: 1;
+    min-height: 80vh;
+    margin-top: -86px;             /* slide hero up under nav */
+    padding: calc(160px + 20px) var(--pad) 80px;
+    overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: var(--lh-surface); }
+  .hero-bg video {
+    position: absolute; top: 50%; left: 50%;
+    width: 100%; height: 100%; min-width: 100%; min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: grayscale(.30) sepia(.18) contrast(1.02) brightness(.95);
+    opacity: .62; z-index: 0;
+  }
+  .hv-mobile { display: none; }
+  @media (max-width: 768px) { .hv-desktop { display: none; } .hv-mobile { display: block; } }
+
+  .hero-bg::before {
+    content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background:
+      linear-gradient(180deg,
+        rgba(201,161,74,.06) 0%,
+        transparent 8%,
+        transparent 20%,
+        rgba(201,161,74,.40) 38%,
+        rgba(201,161,74,.65) 55%,
+        rgba(201,161,74,.50) 70%,
+        rgba(244,240,232,.78) 88%,
+        var(--lh-bg) 100%);
+  }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 55%, rgba(201,161,74,.10) 0%, transparent 45%, rgba(244,240,232,.35) 95%),
+      linear-gradient(90deg, rgba(138,90,31,.14) 0%, transparent 22%, transparent 78%, rgba(138,90,31,.14) 100%);
+  }
+  .hero-guilloche {
+    position: absolute; inset: 0; z-index: 4; pointer-events: none;
+    background-image: url('assets/hero-pattern.svg');
+    background-size: 140px 70px;
+    background-repeat: repeat;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 18%, rgba(0,0,0,1) 50%, rgba(0,0,0,.85) 72%, transparent 96%);
+            mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 18%, rgba(0,0,0,1) 50%, rgba(0,0,0,.85) 72%, transparent 96%);
+  }
+
+  /* ============ HERO CONTENT (glass card centered) ============ */
+  .hero-inner {
+    position: relative; z-index: 5;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 44px 40px 40px;
+    background: linear-gradient(135deg,
+      rgba(244, 240, 232, 0.58) 0%,
+      rgba(251, 247, 238, 0.48) 50%,
+      rgba(201, 161, 74, 0.20) 100%);
+    backdrop-filter: blur(22px) saturate(1.15);
+    -webkit-backdrop-filter: blur(22px) saturate(1.15);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 4px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.4) inset,
+      0 24px 48px rgba(26,24,18,.10),
+      0 4px 12px rgba(26,24,18,.05);
+  }
+  .eyebrow {
+    font-family: var(--lh-mono);
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--lh-brass);
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 26px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ""; width: 28px; height: 1px; background: currentColor;
+  }
+  h1 {
+    font-family: var(--lh-serif);
+    font-weight: 220;
+    font-size: clamp(44px, 7.5vw, 96px);
+    line-height: .92;
+    letter-spacing: -.03em;
+    margin: 0 0 22px;
+    color: var(--lh-ink);
+    font-variation-settings: "SOFT" 80, "opsz" 144;
+  }
+  h1 em {
+    font-style: italic; font-weight: 280;
+    color: var(--lh-brass);
+  }
+  .lede {
+    font-family: var(--lh-serif);
+    font-weight: 330;
+    font-size: clamp(15px, 1.6vw, 19px);
+    line-height: 1.55;
+    color: var(--lh-ink-dim);
+    margin: 0 auto 32px;
+    max-width: 50ch;
+  }
+  .lede em { font-style: italic; color: var(--lh-ink); }
+
+  .rule {
+    width: 56px; height: 1px;
+    background: var(--lh-brass-soft);
+    margin: 28px auto;
+    opacity: .5;
+  }
+
+  .contact-row {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 20px 28px;
+    font-family: var(--lh-mono);
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--lh-ink-mute);
+  }
+  .contact-row .item { display: inline-flex; align-items: center; gap: 8px; }
+  .contact-row .dot { width: 4px; height: 4px; background: var(--lh-brass-soft); border-radius: 50%; }
+
+  /* ============ FOOTER (minimal) ============ */
+  .foot {
+    position: relative; z-index: 5;
+    padding: 22px var(--pad);
+    text-align: center;
+    font-family: var(--lh-mono);
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--lh-ink-mute);
+    border-top: 1px solid var(--lh-rule-soft);
+    background: var(--lh-bg);
+  }
+  .foot .dot { display: inline-block; width: 3px; height: 3px; background: currentColor; border-radius: 50%; opacity: .5; margin: 0 10px; vertical-align: middle; }
+
+  /* ============ Reveal animation ============ */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .9s var(--lh-ease), transform .9s var(--lh-ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: .1s; } .delay-2 { transition-delay: .2s; } .delay-3 { transition-delay: .3s; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 130px var(--pad) 64px; min-height: 70vh; }
+    .hero-inner { padding: 32px 24px 28px; }
+    .contact-row { font-size: 10px; gap: 14px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo" aria-label="Chaplaincy Pro">
+    <img class="full" src="assets/CP_LOGO-gradient.svg" alt="Chaplaincy Pro" />
+    <img class="mini" src="assets/Logo MIni.svg" alt="Chaplaincy Pro" />
+  </a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video class="hv-desktop" autoplay loop muted playsinline preload="auto">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <video class="hv-mobile" autoplay loop muted playsinline preload="metadata">
+      <source src="assets/hero-video-mb.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-guilloche" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="eyebrow reveal">Reconstruction · Spring 2026</div>
+    <h1 class="reveal delay-1">Site under <em>reconstruction.</em></h1>
+    <p class="lede reveal delay-2">
+      Thank you for your patience. We're rebuilding a richer home for the
+      Chaplaincy Pro community — <em>training, scholarship, and presence.</em>
+      Back online soon.
+    </p>
+
+    <div class="rule reveal delay-3"></div>
+
+    <div class="contact-row reveal delay-3">
+      <span class="item">Oregon, USA</span>
+      <span class="dot"></span>
+      <a class="item" href="tel:+19715001401">+1 (971) 500 1401</a>
+      <span class="dot"></span>
+      <a class="item" href="mailto:info@chaplaincy.pro">info@chaplaincy.pro</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  © 2026 Chaplaincy Pro
+  <span class="dot"></span>
+  Chaplaincy Pro is a 501(c)(3) nonprofit organization
+</footer>
+
+<script>
+  // Lightweight reveal-on-load
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      els.forEach(el => el.classList.add('in'));
+    }));
+  })();
+</script>
+
+</body>
+</html>
